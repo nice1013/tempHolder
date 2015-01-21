@@ -11993,20 +11993,6 @@ org.joda.time.tz.Provider
 org.joda.time.tz.UTCProvider
 org.joda.time.tz.ZoneInfoCompiler
 org.joda.time.tz.ZoneInfoProvider
-org.jsoup.Connection$Method: org.jsoup.Connection$Method[] values()
-org.jsoup.Connection$Method: org.jsoup.Connection$Method valueOf(java.lang.String)
-org.jsoup.nodes.Document$OutputSettings$Syntax: org.jsoup.nodes.Document$OutputSettings$Syntax[] values()
-org.jsoup.nodes.Document$OutputSettings$Syntax: org.jsoup.nodes.Document$OutputSettings$Syntax valueOf(java.lang.String)
-org.jsoup.nodes.Document$QuirksMode: org.jsoup.nodes.Document$QuirksMode[] values()
-org.jsoup.nodes.Document$QuirksMode: org.jsoup.nodes.Document$QuirksMode valueOf(java.lang.String)
-org.jsoup.nodes.Entities$EscapeMode: org.jsoup.nodes.Entities$EscapeMode[] values()
-org.jsoup.nodes.Entities$EscapeMode: org.jsoup.nodes.Entities$EscapeMode valueOf(java.lang.String)
-org.jsoup.parser.HtmlTreeBuilderState: org.jsoup.parser.HtmlTreeBuilderState[] values()
-org.jsoup.parser.HtmlTreeBuilderState: org.jsoup.parser.HtmlTreeBuilderState valueOf(java.lang.String)
-org.jsoup.parser.Token$TokenType: org.jsoup.parser.Token$TokenType[] values()
-org.jsoup.parser.Token$TokenType: org.jsoup.parser.Token$TokenType valueOf(java.lang.String)
-org.jsoup.parser.TokeniserState: org.jsoup.parser.TokeniserState[] values()
-org.jsoup.parser.TokeniserState: org.jsoup.parser.TokeniserState valueOf(java.lang.String)
 org.multibit.ApplicationDataDirectoryLocator
 org.multibit.ApplicationDataDirectoryLocator: java.lang.String applicationDataDirectory
 org.multibit.ApplicationDataDirectoryLocator: org.slf4j.Logger log
@@ -12648,6 +12634,7 @@ org.multibit.meta.metaAddress: java.lang.String METATAG
 org.multibit.meta.metaAddress: java.lang.String CONTENT
 org.multibit.meta.metaAddress: metaAddress()
 org.multibit.meta.metaAddress: java.lang.String getDogecoinAddress(java.lang.String)
+org.multibit.meta.metaAddress: java.lang.String getTxtRecord(java.lang.String)
 org.multibit.model.AbstractModel
 org.multibit.model.AbstractModel: org.multibit.model.BaseModel baseModel
 org.multibit.model.AbstractModel: AbstractModel(org.multibit.model.BaseModel)
@@ -12941,7 +12928,7 @@ org.multibit.model.core.CoreModel: java.lang.String PREVIOUS_WINDOW_POS_Y
 org.multibit.model.core.CoreModel: java.lang.String PREVIOUS_WINDOW_MAX
 org.multibit.model.core.CoreModel: java.lang.String PREVIOUS_WINDOW_TRAY
 org.multibit.model.core.CoreModel: java.lang.String MINIMIZE_TO_TRAY
-org.multibit.model.core.CoreModel: java.lang.String USE_META_DOGE
+org.multibit.model.core.CoreModel: java.lang.String USE_TXT_RECORDS
 org.multibit.model.core.CoreModel: CoreModel()
 org.multibit.model.core.CoreModel: CoreModel(java.util.Properties)
 org.multibit.model.core.CoreModel: org.multibit.model.ModelEnum getModelEnum()
@@ -13491,6 +13478,9 @@ org.multibit.store.WalletVersionException
 org.multibit.store.WalletVersionException: long serialVersionUID
 org.multibit.store.WalletVersionException: WalletVersionException(java.lang.String)
 org.multibit.store.WalletVersionException: WalletVersionException(java.lang.String,java.lang.Throwable)
+org.multibit.txt.txtrecords
+org.multibit.txt.txtrecords: txtrecords()
+org.multibit.txt.txtrecords: java.lang.String getTxtRecord(java.lang.String)
 org.multibit.utils.Constants
 org.multibit.utils.Constants: int HTTP_TIMEOUT_MS
 org.multibit.utils.Constants: java.nio.charset.Charset UTF_8
@@ -13709,7 +13699,7 @@ org.multibit.viewsystem.dataproviders.PreferencesDataProvider: boolean getPrevio
 org.multibit.viewsystem.dataproviders.PreferencesDataProvider: java.lang.String getNewOpenExchangeRatesApiCode()
 org.multibit.viewsystem.dataproviders.PreferencesDataProvider: java.lang.String getPreviousOpenExchangeRatesApiCode()
 org.multibit.viewsystem.dataproviders.PreferencesDataProvider: boolean getNewMinimizeToTray()
-org.multibit.viewsystem.dataproviders.PreferencesDataProvider: boolean getNewUseMetaDoge()
+org.multibit.viewsystem.dataproviders.PreferencesDataProvider: boolean getNewUseTxtRecords()
 org.multibit.viewsystem.dataproviders.ShowUriDialogDataProvider
 org.multibit.viewsystem.dataproviders.ShowUriDialogDataProvider: boolean isShowUriDialog()
 org.multibit.viewsystem.simple.SimpleViewSystem
@@ -13848,9 +13838,8 @@ org.multibit.viewsystem.swing.MultiBitFrame: java.awt.TrayIcon trayIcon
 org.multibit.viewsystem.swing.MultiBitFrame: java.awt.SystemTray tray
 org.multibit.viewsystem.swing.MultiBitFrame: int stateBeforeMinimize
 org.multibit.viewsystem.swing.MultiBitFrame: boolean allowMinimizeToTray
-org.multibit.viewsystem.swing.MultiBitFrame: boolean allowMetaDoge
 org.multibit.viewsystem.swing.MultiBitFrame: java.util.Properties userPreferences
-org.multibit.viewsystem.swing.MultiBitFrame: void <clinit>()
+org.multibit.viewsystem.swing.MultiBitFrame: boolean allowTxtRecords
 org.multibit.viewsystem.swing.MultiBitFrame: java.lang.String getHelpContext()
 org.multibit.viewsystem.swing.MultiBitFrame: void setHelpContext(java.lang.String)
 org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.viewsystem.swing.view.components.BlinkLabel getEstimatedBalanceBTCLabel()
@@ -13914,25 +13903,27 @@ org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.exchange.TickerTimerTa
 org.multibit.viewsystem.swing.MultiBitFrame: void setTickerTimerTask1(org.multibit.exchange.TickerTimerTask)
 org.multibit.viewsystem.swing.MultiBitFrame: void setTickerTimerTask2(org.multibit.exchange.TickerTimerTask)
 org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.viewsystem.swing.HealthCheckTimerTask getHealthCheckTimerTask()
+org.multibit.viewsystem.swing.MultiBitFrame: void getAllowTxtRecord()
 org.multibit.viewsystem.swing.MultiBitFrame: void onKeysAdded(com.google.dogecoin.core.Wallet,java.util.List)
-org.multibit.viewsystem.swing.MultiBitFrame: org.slf4j.Logger access$0()
-org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.platform.listener.GenericQuitEventListener access$1(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.platform.listener.GenericQuitResponse access$2(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$3(org.multibit.viewsystem.swing.MultiBitFrame,boolean)
-org.multibit.viewsystem.swing.MultiBitFrame: int access$4(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$5(org.multibit.viewsystem.swing.MultiBitFrame,int)
-org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.viewsystem.swing.view.ticker.TickerTablePanel access$6(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.controller.Controller access$7(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: java.util.Timer access$8(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: java.util.Timer access$9(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$10(org.multibit.viewsystem.swing.MultiBitFrame,java.util.Timer)
-org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.controller.exchange.ExchangeController access$11(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$12(org.multibit.viewsystem.swing.MultiBitFrame,java.util.Timer)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$13(org.multibit.viewsystem.swing.MultiBitFrame,boolean,org.multibit.viewsystem.View)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$14(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.Viewable)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$15(org.multibit.viewsystem.swing.MultiBitFrame)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$16(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.DisplayHint)
-org.multibit.viewsystem.swing.MultiBitFrame: void access$17(org.multibit.viewsystem.swing.MultiBitFrame,boolean,java.math.BigInteger,java.math.BigInteger,boolean,java.lang.String,double)
+org.multibit.viewsystem.swing.MultiBitFrame: org.slf4j.Logger access$000()
+org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.platform.listener.GenericQuitResponse access$100(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.platform.listener.GenericQuitEventListener access$200(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: void access$300(org.multibit.viewsystem.swing.MultiBitFrame,boolean)
+org.multibit.viewsystem.swing.MultiBitFrame: int access$400(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: int access$402(org.multibit.viewsystem.swing.MultiBitFrame,int)
+org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.viewsystem.swing.view.ticker.TickerTablePanel access$500(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.controller.Controller access$600(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: java.util.Timer access$700(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: java.util.Timer access$800(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: java.util.Timer access$702(org.multibit.viewsystem.swing.MultiBitFrame,java.util.Timer)
+org.multibit.viewsystem.swing.MultiBitFrame: org.multibit.controller.exchange.ExchangeController access$900(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: java.util.Timer access$802(org.multibit.viewsystem.swing.MultiBitFrame,java.util.Timer)
+org.multibit.viewsystem.swing.MultiBitFrame: void access$1000(org.multibit.viewsystem.swing.MultiBitFrame,boolean,org.multibit.viewsystem.View)
+org.multibit.viewsystem.swing.MultiBitFrame: void access$1100(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.Viewable)
+org.multibit.viewsystem.swing.MultiBitFrame: void access$1200(org.multibit.viewsystem.swing.MultiBitFrame)
+org.multibit.viewsystem.swing.MultiBitFrame: void access$1300(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.DisplayHint)
+org.multibit.viewsystem.swing.MultiBitFrame: void access$1400(org.multibit.viewsystem.swing.MultiBitFrame,boolean,java.math.BigInteger,java.math.BigInteger,boolean,java.lang.String,double)
+org.multibit.viewsystem.swing.MultiBitFrame: void <clinit>()
 org.multibit.viewsystem.swing.MultiBitFrame$1
 org.multibit.viewsystem.swing.MultiBitFrame$1: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$1: MultiBitFrame$1(org.multibit.viewsystem.swing.MultiBitFrame)
@@ -13943,8 +13934,8 @@ org.multibit.viewsystem.swing.MultiBitFrame$10: org.multibit.viewsystem.swing.Mu
 org.multibit.viewsystem.swing.MultiBitFrame$10: MultiBitFrame$10(org.multibit.viewsystem.swing.MultiBitFrame)
 org.multibit.viewsystem.swing.MultiBitFrame$10: void run()
 org.multibit.viewsystem.swing.MultiBitFrame$11
-org.multibit.viewsystem.swing.MultiBitFrame$11: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$11: org.multibit.viewsystem.DisplayHint val$displayHint
+org.multibit.viewsystem.swing.MultiBitFrame$11: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$11: MultiBitFrame$11(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.DisplayHint)
 org.multibit.viewsystem.swing.MultiBitFrame$11: void run()
 org.multibit.viewsystem.swing.MultiBitFrame$12
@@ -13952,19 +13943,19 @@ org.multibit.viewsystem.swing.MultiBitFrame$12: org.multibit.viewsystem.swing.Mu
 org.multibit.viewsystem.swing.MultiBitFrame$12: MultiBitFrame$12(org.multibit.viewsystem.swing.MultiBitFrame)
 org.multibit.viewsystem.swing.MultiBitFrame$12: void run()
 org.multibit.viewsystem.swing.MultiBitFrame$13
-org.multibit.viewsystem.swing.MultiBitFrame$13: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$13: boolean val$filesHaveBeenChangeByAnotherProcess
 org.multibit.viewsystem.swing.MultiBitFrame$13: boolean val$isBusy
 org.multibit.viewsystem.swing.MultiBitFrame$13: java.lang.String val$syncMessage
 org.multibit.viewsystem.swing.MultiBitFrame$13: double val$syncPercent
+org.multibit.viewsystem.swing.MultiBitFrame$13: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$13: MultiBitFrame$13(org.multibit.viewsystem.swing.MultiBitFrame,boolean,boolean,java.lang.String,double)
 org.multibit.viewsystem.swing.MultiBitFrame$13: void run()
 org.multibit.viewsystem.swing.MultiBitFrame$14
-org.multibit.viewsystem.swing.MultiBitFrame$14: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$14: boolean val$filesHaveBeenChangeByAnotherProcess
 org.multibit.viewsystem.swing.MultiBitFrame$14: java.math.BigInteger val$finalEstimatedBalance
 org.multibit.viewsystem.swing.MultiBitFrame$14: java.math.BigInteger val$finalAvailableToSpend
 org.multibit.viewsystem.swing.MultiBitFrame$14: boolean val$isBusy
+org.multibit.viewsystem.swing.MultiBitFrame$14: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$14: MultiBitFrame$14(org.multibit.viewsystem.swing.MultiBitFrame,boolean,java.math.BigInteger,java.math.BigInteger,boolean)
 org.multibit.viewsystem.swing.MultiBitFrame$14: void run()
 org.multibit.viewsystem.swing.MultiBitFrame$15
@@ -13998,25 +13989,25 @@ org.multibit.viewsystem.swing.MultiBitFrame$5: org.multibit.viewsystem.swing.Mul
 org.multibit.viewsystem.swing.MultiBitFrame$5: MultiBitFrame$5(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.controller.Controller)
 org.multibit.viewsystem.swing.MultiBitFrame$5: void actionPerformed(java.awt.event.ActionEvent)
 org.multibit.viewsystem.swing.MultiBitFrame$6
-org.multibit.viewsystem.swing.MultiBitFrame$6: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$6: javax.swing.JMenuItem val$showTicker
 org.multibit.viewsystem.swing.MultiBitFrame$6: org.multibit.viewsystem.swing.MultiBitFrame val$thisFrame
+org.multibit.viewsystem.swing.MultiBitFrame$6: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$6: MultiBitFrame$6(org.multibit.viewsystem.swing.MultiBitFrame,javax.swing.JMenuItem,org.multibit.viewsystem.swing.MultiBitFrame)
 org.multibit.viewsystem.swing.MultiBitFrame$6: void actionPerformed(java.awt.event.ActionEvent)
 org.multibit.viewsystem.swing.MultiBitFrame$7
-org.multibit.viewsystem.swing.MultiBitFrame$7: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$7: boolean val$initUI
 org.multibit.viewsystem.swing.MultiBitFrame$7: org.multibit.viewsystem.View val$initialView
+org.multibit.viewsystem.swing.MultiBitFrame$7: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$7: MultiBitFrame$7(org.multibit.viewsystem.swing.MultiBitFrame,boolean,org.multibit.viewsystem.View)
 org.multibit.viewsystem.swing.MultiBitFrame$7: void run()
 org.multibit.viewsystem.swing.MultiBitFrame$8
-org.multibit.viewsystem.swing.MultiBitFrame$8: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$8: org.multibit.viewsystem.Viewable val$nextViewFinal
+org.multibit.viewsystem.swing.MultiBitFrame$8: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$8: MultiBitFrame$8(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.Viewable)
 org.multibit.viewsystem.swing.MultiBitFrame$8: void run()
 org.multibit.viewsystem.swing.MultiBitFrame$9
-org.multibit.viewsystem.swing.MultiBitFrame$9: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$9: org.multibit.viewsystem.Viewable val$viewToNavigateAwayFromFinal
+org.multibit.viewsystem.swing.MultiBitFrame$9: org.multibit.viewsystem.swing.MultiBitFrame this$0
 org.multibit.viewsystem.swing.MultiBitFrame$9: MultiBitFrame$9(org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.Viewable)
 org.multibit.viewsystem.swing.MultiBitFrame$9: void run()
 org.multibit.viewsystem.swing.MultiBitTabbedPane
@@ -14601,10 +14592,10 @@ org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: org.slf4j.Logger 
 org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: org.multibit.viewsystem.swing.MultiBitFrame mainFrame
 org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: org.multibit.viewsystem.dataproviders.BitcoinFormDataProvider dataProvider
 org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: org.multibit.controller.bitcoin.BitcoinController bitcoinController
-org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: void <clinit>()
 org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: SendBitcoinConfirmAction(org.multibit.controller.bitcoin.BitcoinController,org.multibit.viewsystem.swing.MultiBitFrame,org.multibit.viewsystem.dataproviders.BitcoinFormDataProvider)
 org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: void actionPerformed(java.awt.event.ActionEvent)
 org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: void logMessage(java.lang.Exception)
+org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction: void <clinit>()
 org.multibit.viewsystem.swing.action.SendBitcoinNowAction
 org.multibit.viewsystem.swing.action.SendBitcoinNowAction: org.slf4j.Logger log
 org.multibit.viewsystem.swing.action.SendBitcoinNowAction: long serialVersionUID
@@ -15894,7 +15885,6 @@ org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: org.multibit.viewsys
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel thisPanel
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String regularTooltipText
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String pleaseWaitTooltipText
-org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void <clinit>()
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: SendBitcoinPanel(org.multibit.controller.bitcoin.BitcoinController,org.multibit.viewsystem.swing.MultiBitFrame)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void setEnableSendButton(boolean)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void enableSendButtonOnSwingThread()
@@ -15908,7 +15898,7 @@ org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String get
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void populateLocalisationMap()
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: javax.swing.JPanel createFormPanel(javax.swing.JPanel,java.awt.GridBagConstraints)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String getAddress()
-org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String getMeta(java.lang.String)
+org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String initializegetTxtRecord(java.lang.String)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void loadForm()
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void setAddressBookDataByRow(org.multibit.model.bitcoin.WalletAddressBookData)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void displayView(org.multibit.viewsystem.DisplayHint)
@@ -15917,7 +15907,8 @@ org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String get
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: java.lang.String getViewTooltip()
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: org.multibit.viewsystem.View getViewId()
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: org.multibit.viewsystem.swing.action.SendBitcoinConfirmAction getSendBitcoinConfirmAction()
-org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void access$0()
+org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void access$000()
+org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel: void <clinit>()
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$1
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$1: SendBitcoinPanel$1()
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$1: void run()
@@ -15926,8 +15917,8 @@ org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$2: org.multibit.views
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$2: SendBitcoinPanel$2(org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$2: void keyPressed(java.awt.event.KeyEvent)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$3
-org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$3: org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel this$0
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$3: javax.swing.JScrollPane val$labelScrollPane
+org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$3: org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel this$0
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$3: SendBitcoinPanel$3(org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel,javax.swing.JScrollPane)
 org.multibit.viewsystem.swing.view.panels.SendBitcoinPanel$3: void stateChanged(javax.swing.event.ChangeEvent)
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel
@@ -15977,7 +15968,7 @@ org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JChe
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JCheckBox showBid
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JCheckBox showAsk
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JCheckBox showExchange
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JCheckBox useMetaDogeCheckbox
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JCheckBox useTxtRecordsCheckbox
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String originalExchange1
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String originalCurrency1
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean originalShowSecondRow
@@ -16006,7 +15997,6 @@ org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: int LENGTH_OF_OPEN_EXCHANGE_RATE_APP_ID
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.awt.Font selectedFont
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: int STENT_DELTA
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void <clinit>()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: ShowPreferencesPanel(org.multibit.controller.bitcoin.BitcoinController,org.multibit.controller.exchange.ExchangeController,org.multibit.viewsystem.swing.MultiBitFrame)
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void displayView(org.multibit.viewsystem.DisplayHint)
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void navigateAwayFromView()
@@ -16030,7 +16020,7 @@ org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.vie
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String getPreviousUndoChangesText()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String getPreviousOpenExchangeRatesApiCode()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean getNewMinimizeToTray()
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean getNewUseMetaDoge()
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean getNewUseTxtRecords()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String getNewOpenExchangeRatesApiCode()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String getPreviousUserLanguageCode()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String getNewUserLanguageCode()
@@ -16070,29 +16060,30 @@ org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean getPrevi
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean getNewShowExchange()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String getPreviousLookAndFeel()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String getNewLookAndFeel()
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JRadioButton access$0(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$1(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JCheckBox access$2(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void access$3(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel,boolean)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.controller.Controller access$4(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$5(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.MultiBitFrame access$6(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$7(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$8(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JPanel access$9(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$10(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitTextField access$11(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitButton access$12(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean access$13(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$14(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$15(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$16(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$17(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String access$18(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void access$19(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel,java.lang.String)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void access$20(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void access$21(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel,java.net.URI)
-org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.slf4j.Logger access$22()
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$000(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.MultiBitFrame access$100(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$200(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$300(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JPanel access$400(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$500(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitTextField access$600(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitButton access$700(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: boolean access$800(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$900(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$1000(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$1100(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.viewsystem.swing.view.components.MultiBitLabel access$1200(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.multibit.controller.Controller access$1300(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String access$1400(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: java.lang.String access$1402(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel,java.lang.String)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void access$1500(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void access$1600(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel,java.net.URI)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: org.slf4j.Logger access$1700()
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JRadioButton access$1800(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JComboBox access$1900(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: javax.swing.JCheckBox access$2000(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void access$2100(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel,boolean)
+org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel: void <clinit>()
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel$1
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel$1: org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel this$0
 org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel$1: ShowPreferencesPanel$1(org.multibit.viewsystem.swing.view.panels.ShowPreferencesPanel)
